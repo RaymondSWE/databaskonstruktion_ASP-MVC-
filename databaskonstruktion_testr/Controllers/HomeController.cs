@@ -21,5 +21,17 @@ namespace databaskonstruktion_testr.Controllers
             ViewBag.AllToyTable = _KidModel.GetAllToys();
             return View();
         }
+
+        public IActionResult Deletekid(string PNR)
+        {
+            _KidModel.DeleteKid(PNR);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteToy(int toyId)
+        {
+            _KidModel.DeleteToy(toyId);
+            return RedirectToAction("Index");
+        }
     }
 }

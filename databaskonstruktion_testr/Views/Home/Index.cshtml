@@ -18,14 +18,14 @@
         <th>ActionLink</th>
     </tr>
 
-    @foreach (DataRow customerRow in ViewBag.AllKidTable.Rows)
+    @foreach (DataRow kidRow in ViewBag.AllKidTable.Rows)
     {
         <tr>
             @for (int i = 0; i < ViewBag.AllKidTable.Columns.Count; ++i)
             {
-                <td>@customerRow[i]</td>
+                <td>@kidRow[i]</td>
             }
-            @*<td>@Html.ActionLink("Delete", "DeleteKid", "Home", new { custno = customerRow["custno"] }, new { title = "Click to delete customer " + customerRow["NAME"] })</td>*@
+            <td>@Html.ActionLink("Delete", "DeleteKid", "Home", new { PNR = kidRow["PNR"] }, new { title = "Click to delete kid " + kidRow["NAME"] })</td>
         </tr>
     }
 
@@ -47,14 +47,14 @@
         <th>ActionLink</th>
     </tr>
 
-    @foreach (DataRow customerRow in ViewBag.AllToyTable.Rows)
+    @foreach (DataRow toyRow in ViewBag.AllToyTable.Rows)
     {
         <tr>
             @for (int i = 0; i < ViewBag.AllToyTable.Columns.Count; ++i)
             {
-                <td>@customerRow[i]</td>
+                <td>@toyRow[i]</td>
             }
-            @*<td>@Html.ActionLink("Delete", "DeleteKid", "Home", new { custno = customerRow["custno"] }, new { title = "Click to delete customer " + customerRow["NAME"] })</td>*@
+            <td>@Html.ActionLink("Delete", "DeleteToy", "Home", new { toyId = toyRow["toyId"] }, new { title = "Click to delete toyId " + toyRow["toyName"] })</td>
         </tr>
     }
 

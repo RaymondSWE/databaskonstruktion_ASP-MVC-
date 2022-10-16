@@ -41,5 +41,27 @@ namespace databaskonstruktion_testr.Models
 
             return toyTable;
         }
+
+        public void DeleteKid(string PNR)
+        {
+            MySqlConnection dbcon = new MySqlConnection(_connectionString);
+            dbcon.Open();
+            string deleteString = "DELETE FROM kid WHERE PNR=@PNR;";
+            MySqlCommand sqlCmd = new MySqlCommand(deleteString, dbcon);
+            sqlCmd.Parameters.AddWithValue("@PNR", PNR);
+            int rows = sqlCmd.ExecuteNonQuery();
+            dbcon.Close();
+        }
+
+        public void DeleteToy(int toyId)
+        {
+            MySqlConnection dbcon = new MySqlConnection(_connectionString);
+            dbcon.Open();
+            string deleteString = "DELETE FROM toy WHERE toyId=@toyId;";
+            MySqlCommand sqlCmd = new MySqlCommand(deleteString, dbcon);
+            sqlCmd.Parameters.AddWithValue("@toyId", toyId);
+            int rows = sqlCmd.ExecuteNonQuery();
+            dbcon.Close();
+        }
     }
 }
