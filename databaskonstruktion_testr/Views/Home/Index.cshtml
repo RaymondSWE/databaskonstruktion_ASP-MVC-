@@ -1,8 +1,61 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using System.Data
+<link href="c:\users\raman\source\repos\databaskonstruktion_testr\databaskonstruktion_testr\css\stylesheet.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
 }
+<h2>Kids</h2>
+@{
+    DataTable kidsTable = ViewBag.AllKidTable;
+    string tableHeader = "List of all kid";
+}
+<table class="table">
+    <caption>@tableHeader</caption>
+    <tr>
+        @foreach (DataColumn dataColumn in ViewBag.AllKidTable.Columns)
+        {
+            <th>@dataColumn.ColumnName</th>
+        }
+        <th>ActionLink</th>
+    </tr>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    @foreach (DataRow customerRow in ViewBag.AllKidTable.Rows)
+    {
+        <tr>
+            @for (int i = 0; i < ViewBag.AllKidTable.Columns.Count; ++i)
+            {
+                <td>@customerRow[i]</td>
+            }
+            @*<td>@Html.ActionLink("Delete", "DeleteKid", "Home", new { custno = customerRow["custno"] }, new { title = "Click to delete customer " + customerRow["NAME"] })</td>*@
+        </tr>
+    }
+
+</table>
+
+
+<h2>Toy</h2>
+@{
+    DataTable toyTable = ViewBag.AllToyTable;
+    string tableHeaderTwo = "List of all Toys";
+}
+<table class="table">
+    <caption>@tableHeaderTwo</caption>
+    <tr>
+        @foreach (DataColumn dataColumn in ViewBag.AllToyTable.Columns)
+        {
+            <th>@dataColumn.ColumnName</th>
+        }
+        <th>ActionLink</th>
+    </tr>
+
+    @foreach (DataRow customerRow in ViewBag.AllToyTable.Rows)
+    {
+        <tr>
+            @for (int i = 0; i < ViewBag.AllToyTable.Columns.Count; ++i)
+            {
+                <td>@customerRow[i]</td>
+            }
+            @*<td>@Html.ActionLink("Delete", "DeleteKid", "Home", new { custno = customerRow["custno"] }, new { title = "Click to delete customer " + customerRow["NAME"] })</td>*@
+        </tr>
+    }
+
+</table>
