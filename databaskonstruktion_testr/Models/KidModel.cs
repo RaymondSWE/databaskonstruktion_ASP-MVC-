@@ -63,5 +63,19 @@ namespace databaskonstruktion_testr.Models
             int rows = sqlCmd.ExecuteNonQuery();
             dbcon.Close();
         }
+
+
+        public DataTable SearchKids(string name)
+        {
+            MySqlConnection dbcon = new MySqlConnection(_connectionString);
+            dbcon.Open();
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM kid WHERE name LIKE @name;", dbcon);
+            adapter.SelectCommand.Parameters.AddWithValue("@NAME", "%" + name + "%");
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, "result");
+            DataTable kidTable = ds.Tables["result"];
+            dbcon.Close();
+            return kidTable;
+        }
     }
 }

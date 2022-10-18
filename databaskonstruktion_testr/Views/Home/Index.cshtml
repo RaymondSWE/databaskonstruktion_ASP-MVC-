@@ -93,7 +93,7 @@
 
 
 
-<h2>Find Invoice Rows</h2>
+<h2>Find Wishlist Rows</h2>
 <form method="post" action="@Url.Action("SearchWishlistRow", "Home")">
     <label>
         Toy Id:
@@ -103,6 +103,16 @@
                 <option value="@row["year"]">@row["description"]</option>
             }
         </select>
+    </label>
+    <input type="submit" value="Search" />
+</form>
+
+
+<h2>Write part of kid name</h2>
+<form method="post" action="@Url.Action("SearchKids", "Home")">
+    <label>
+        Name:
+        <input type="text" name="name" value="" placeholder="Customer Name" />
     </label>
     <input type="submit" value="Search" />
 </form>

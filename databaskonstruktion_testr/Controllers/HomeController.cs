@@ -52,5 +52,11 @@ namespace databaskonstruktion_testr.Controllers
             ViewBag.SearchResults = _WishlistrowModel.SearchWishlistRow(wishlistrow, wishlistYear, toyId);
             return View();
         }
+
+        public IActionResult SearchKids(string name)
+        {
+            ViewBag.SearchResults = _KidModel.SearchKids(name);
+            return View();
+        }
     }
 }
