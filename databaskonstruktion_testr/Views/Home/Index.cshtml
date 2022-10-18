@@ -93,16 +93,16 @@
 
 
 
-@*<h2>find invoice rows</h2>
-<form method="post" action="@url.action("searchinvoicerows", "home")">
+<h2>Find Invoice Rows</h2>
+<form method="post" action="@Url.Action("SearchWishlistRow", "Home")">
     <label>
-        customer:
-        <select name="custno">
-            @foreach (var row in viewbag.allkidtable.rows)
+        Toy Id:
+        <select name="toyId">
+            @foreach (var row in ViewBag.AllWishlistTable.Rows)
             {
-                <option value="@row["custno"]">@row["name"]</option>
+                <option value="@row["year"]">@row["description"]</option>
             }
         </select>
     </label>
-    <input type="submit" value="search" />
-</form>*@
+    <input type="submit" value="Search" />
+</form>
