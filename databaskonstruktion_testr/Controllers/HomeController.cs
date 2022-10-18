@@ -58,5 +58,11 @@ namespace databaskonstruktion_testr.Controllers
             ViewBag.SearchResults = _KidModel.SearchKids(name);
             return View();
         }
+
+        public IActionResult InsertKids(string PNR, string name, int birthday, int disobedience, int deliveryNr, string type)
+        {
+            _KidModel.InsertKids(PNR, name, birthday, disobedience, deliveryNr, type);
+            return RedirectToAction("Index");
+        }
     }
 }

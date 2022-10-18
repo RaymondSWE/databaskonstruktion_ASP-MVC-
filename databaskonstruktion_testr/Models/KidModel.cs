@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Utilities;
 using System.Data;
 
 namespace databaskonstruktion_testr.Models
@@ -76,6 +77,22 @@ namespace databaskonstruktion_testr.Models
             DataTable kidTable = ds.Tables["result"];
             dbcon.Close();
             return kidTable;
+        }
+
+        public void InsertKids(string PNR, string name, int birthday, int disobedience, int deliveryNr, string type)
+        {
+            MySqlConnection dbcon = new MySqlConnection(_connectionString);
+            dbcon.Open();
+            string deleteString = "INSERT INTO kid(PNR,name,birthday,disobedience,deliveryNr,type ) VALUES(@PNR,@name,@birthday,@disobedience, @deliveryNr, @type);";
+            MySqlCommand sqlCmd = new MySqlCommand(deleteString, dbcon);
+            sqlCmd.Parameters.AddWithValue("@PNR", PNR);
+            sqlCmd.Parameters.AddWithValue("@name", name);
+            sqlCmd.Parameters.AddWithValue("@birthday", birthday);
+            sqlCmd.Parameters.AddWithValue("@disobedience", disobedience);
+            sqlCmd.Parameters.AddWithValue("@deliveryNr", deliveryNr);
+            sqlCmd.Parameters.AddWithValue("@type", type);
+            int rows = sqlCmd.ExecuteNonQuery();
+            dbcon.Close();
         }
     }
 }

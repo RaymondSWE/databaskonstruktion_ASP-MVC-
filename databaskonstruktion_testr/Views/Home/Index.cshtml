@@ -116,3 +116,34 @@
     </label>
     <input type="submit" value="Search" />
 </form>
+
+
+<h2>Add kid</h2>
+<table>
+    <tr>
+        @foreach (var dataColumn in ViewBag.AllKidTable.Columns)
+        {
+            <th>@dataColumn.ColumnName</th>
+        }
+    </tr>
+    @foreach (var kidRow in ViewBag.AllKidTable.Rows)
+    {
+        <tr>
+            @for (int i = 0; i < ViewBag.AllKidTable.Columns.Count; ++i)
+            {
+                <td>@kidRow[i]</td>
+            }
+        </tr>
+    }
+</table>
+<br />
+
+<form method="post" action="@Url.Action("InsertKids", "Home")">
+    <label>PNR: <input type="text" name="PNR"></label>
+    <label>name: <input type="text" name="name"></label>
+    <label>birthday: <input type="text" name="birthday"></label>
+    <label>disobedience: <input type="text" name="disobedience"></label>
+    <label>deliveryNr: <input type="text" name="deliveryNr"></label>
+    <label>type: <input type="text" name="type"></label>
+    <input type="submit" value="Add Kids" />
+</form>
