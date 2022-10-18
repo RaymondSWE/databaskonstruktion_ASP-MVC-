@@ -59,3 +59,50 @@
     }
 
 </table>
+
+
+<h2>Wishlist</h2>
+@{
+    DataTable wishlistTable = ViewBag.AllWishlistTable;
+    string tableWishlist = "List of all Wishlist";
+}
+<table class="table">
+    <caption>@tableWishlist</caption>
+    <tr>
+        @foreach (DataColumn dataColumn in ViewBag.AllWishlistTable.Columns)
+        {
+            <th>@dataColumn.ColumnName</th>
+        }
+        <th>ActionLink</th>
+    </tr>
+
+@*    @foreach (DataRow toyRow in ViewBag.AllWishlistTable.Rows)
+    {
+        <tr>
+            @for (int i = 0; i < ViewBag.AllWishlistTable.Columns.Count; ++i)
+            {
+                <td>@toyRow[i]</td>
+            }
+            <td>@Html.ActionLink("Delete", "DeleteToy", "Home", new { toyId = toyRow["toyId"] }, new { title = "Click to delete toyId " + toyRow["toyName"] })</td>
+        </tr>
+    }
+
+</table>
+*@
+
+
+
+
+@*<h2>find invoice rows</h2>
+<form method="post" action="@url.action("searchinvoicerows", "home")">
+    <label>
+        customer:
+        <select name="custno">
+            @foreach (var row in viewbag.allkidtable.rows)
+            {
+                <option value="@row["custno"]">@row["name"]</option>
+            }
+        </select>
+    </label>
+    <input type="submit" value="search" />
+</form>*@

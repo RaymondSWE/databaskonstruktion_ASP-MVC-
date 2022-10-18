@@ -8,17 +8,22 @@ namespace databaskonstruktion_testr.Controllers
     {
         private readonly IConfiguration _configuration;
         private KidModel _KidModel;
+        private ToyModel _ToyModel;
+        private WishlistModel _WishlistModel;
 
         public HomeController(IConfiguration configuration)
         {
             _configuration = configuration;
             _KidModel = new KidModel(_configuration);
+            _ToyModel = new ToyModel(_configuration);
+            _WishlistModel = new WishlistModel(_configuration);
         }
 
         public IActionResult Index()
         {
             ViewBag.AllKidTable = _KidModel.GetAllKids();
-            ViewBag.AllToyTable = _KidModel.GetAllToys();
+            ViewBag.AllToyTable = _ToyModel.GetAllToys();
+            ViewBag.AllWishlistTable = _WishlistModel.GetAllWishlist();
             return View();
         }
 

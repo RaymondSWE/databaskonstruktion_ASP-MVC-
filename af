@@ -1,0 +1,23 @@
+[33mcommit d551cbe57d637070a2cbe865a35b2b774803f205[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Raman Mohammed <RamanMhoammed@hotmail.com>
+Date:   Sun Oct 16 23:20:16 2022 +0200
+
+    added delete function
+
+[33mcommit 2c38c5d956faf6e5c63833adfa33ced5714cef1e[m
+Author: Raman Mohammed <RamanMhoammed@hotmail.com>
+Date:   Sun Oct 16 21:42:56 2022 +0200
+
+    added to table into formal table
+
+[33mcommit 320ab8b0ee9e6b8c14fb4dd87281104d5a66e6e2[m
+Author: Raman Mohammed <RamanMhoammed@hotmail.com>
+Date:   Sun Oct 16 20:20:31 2022 +0200
+
+    Add project files.
+
+[33mcommit a439fa373165df0226419d056843f36f43cfae43[m
+Author: Raman Mohammed <RamanMhoammed@hotmail.com>
+Date:   Sun Oct 16 20:20:28 2022 +0200
+
+    Add .gitattributes and .gitignore.
