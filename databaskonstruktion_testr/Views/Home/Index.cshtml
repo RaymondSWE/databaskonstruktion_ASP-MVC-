@@ -76,19 +76,19 @@
         <th>ActionLink</th>
     </tr>
 
-@*    @foreach (DataRow toyRow in ViewBag.AllWishlistTable.Rows)
+    @foreach (DataRow wishlistRow in ViewBag.AllWishlistTable.Rows)
     {
         <tr>
             @for (int i = 0; i < ViewBag.AllWishlistTable.Columns.Count; ++i)
             {
-                <td>@toyRow[i]</td>
+                <td>@wishlistRow[i]</td>
             }
-            <td>@Html.ActionLink("Delete", "DeleteToy", "Home", new { toyId = toyRow["toyId"] }, new { title = "Click to delete toyId " + toyRow["toyName"] })</td>
+            <td>@Html.ActionLink("Delete", "DeleteWishlist", "Home", new { toyId = wishlistRow["toyId"], year = wishlistRow["year"], PNR = wishlistRow["PNR"]  }, new { title = "Click to delete toyId " + wishlistRow["description"] })</td>
         </tr>
     }
 
 </table>
-*@
+
 
 
 

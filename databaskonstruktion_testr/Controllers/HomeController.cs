@@ -38,5 +38,11 @@ namespace databaskonstruktion_testr.Controllers
             _KidModel.DeleteToy(toyId);
             return RedirectToAction("Index");
         }
+
+        public IActionResult DeleteWishlist(int year, String PNR, int toyId)
+        {
+            _WishlistModel.DeleteWishlist(year, PNR, toyId);
+            return RedirectToAction("Index");
+        }
     }
 }
