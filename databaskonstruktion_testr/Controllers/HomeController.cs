@@ -37,7 +37,7 @@ namespace databaskonstruktion_testr.Controllers
 
         public IActionResult DeleteToy(int toyId)
         {
-            _KidModel.DeleteToy(toyId);
+            _ToyModel.DeleteToy(toyId);
             return RedirectToAction("Index");
         }
 
