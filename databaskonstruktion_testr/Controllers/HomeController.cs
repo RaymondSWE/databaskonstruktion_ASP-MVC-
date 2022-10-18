@@ -10,6 +10,7 @@ namespace databaskonstruktion_testr.Controllers
         private KidModel _KidModel;
         private ToyModel _ToyModel;
         private WishlistModel _WishlistModel;
+        private WishlistrowModel _WishlistrowModel;
 
         public HomeController(IConfiguration configuration)
         {
@@ -17,6 +18,7 @@ namespace databaskonstruktion_testr.Controllers
             _KidModel = new KidModel(_configuration);
             _ToyModel = new ToyModel(_configuration);
             _WishlistModel = new WishlistModel(_configuration);
+            _WishlistrowModel = new WishlistrowModel(_configuration);
         }
 
         public IActionResult Index()
@@ -43,6 +45,12 @@ namespace databaskonstruktion_testr.Controllers
         {
             _WishlistModel.DeleteWishlist(year, PNR, toyId);
             return RedirectToAction("Index");
+        }
+
+        public IActionResult SearchWishlistRow(int wishlistrow, int wishlistYear, int toyId)
+        {
+            ViewBag.SearchResults = _WishlistrowModel.SearchWishlistRow(wishlistrow, wishlistYear, toyId);
+            return View();
         }
     }
 }
