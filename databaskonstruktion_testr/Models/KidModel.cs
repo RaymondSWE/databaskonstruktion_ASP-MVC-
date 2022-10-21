@@ -30,19 +30,6 @@ namespace databaskonstruktion_testr.Models
         }
 
 
-        public DataTable GetAllToys()
-        {
-            MySqlConnection dbcon = new MySqlConnection(_connectionString);
-            dbcon.Open();
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM toy;", dbcon);
-            DataSet ds = new DataSet();
-            adapter.Fill(ds, "result");
-            DataTable toyTable = ds.Tables["result"];
-            dbcon.Close();
-
-            return toyTable;
-        }
-
         public void DeleteKid(string PNR)
         {
             MySqlConnection dbcon = new MySqlConnection(_connectionString);
@@ -54,16 +41,6 @@ namespace databaskonstruktion_testr.Models
             dbcon.Close();
         }
 
-        public void DeleteToy(int toyId)
-        {
-            MySqlConnection dbcon = new MySqlConnection(_connectionString);
-            dbcon.Open();
-            string deleteString = "DELETE FROM toy WHERE toyId=@toyId;";
-            MySqlCommand sqlCmd = new MySqlCommand(deleteString, dbcon);
-            sqlCmd.Parameters.AddWithValue("@toyId", toyId);
-            int rows = sqlCmd.ExecuteNonQuery();
-            dbcon.Close();
-        }
 
 
         public DataTable SearchKids(string name)

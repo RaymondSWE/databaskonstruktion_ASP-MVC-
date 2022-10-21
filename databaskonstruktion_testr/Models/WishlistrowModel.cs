@@ -18,9 +18,9 @@ namespace databaskonstruktion_testr.Models
         {
             MySqlConnection dbcon = new MySqlConnection(_connectionString);
             dbcon.Open();
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM wishlistrow WHERE wishlistrow=@wishlistrow AND wishlistYear=@wishlistYear AND toyId=@toyId;", dbcon);
-            adapter.SelectCommand.Parameters.AddWithValue("@wishlistrow", wishlistrow);
-            adapter.SelectCommand.Parameters.AddWithValue("@wishlistYear", wishlistYear);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM wishlistrow WHERE toyId=@toyId;", dbcon);
+            //adapter.SelectCommand.Parameters.AddWithValue("@wishlistrow", wishlistrow);
+            //adapter.SelectCommand.Parameters.AddWithValue("@wishlistYear", wishlistYear);
             adapter.SelectCommand.Parameters.AddWithValue("@toyId", toyId);
             DataSet ds = new DataSet();
             adapter.Fill(ds, "result");

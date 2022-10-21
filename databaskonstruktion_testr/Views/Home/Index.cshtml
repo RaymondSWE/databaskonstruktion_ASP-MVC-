@@ -23,6 +23,7 @@
         <tr>
             @for (int i = 0; i < ViewBag.AllKidTable.Columns.Count; ++i)
             {
+
                 <td>@kidRow[i]</td>
             }
             <td>@Html.ActionLink("Delete", "DeleteKid", "Home", new { PNR = kidRow["PNR"] }, new { title = "Click to delete kid " + kidRow["NAME"] })</td>
@@ -81,7 +82,9 @@
         <tr>
             @for (int i = 0; i < ViewBag.AllWishlistTable.Columns.Count; ++i)
             {
+  
                 <td>@wishlistRow[i]</td>
+                
             }
             <td>@Html.ActionLink("Delete", "DeleteWishlist", "Home", new { toyId = wishlistRow["toyId"], year = wishlistRow["year"], PNR = wishlistRow["PNR"]  }, new { title = "Click to delete toyId " + wishlistRow["description"] })</td>
         </tr>
@@ -96,11 +99,11 @@
 <h2>Find Wishlist Rows</h2>
 <form method="post" action="@Url.Action("SearchWishlistRow", "Home")">
     <label>
-        Toy Id:
+        Toy description:
         <select name="toyId">
             @foreach (var row in ViewBag.AllWishlistTable.Rows)
             {
-                <option value="@row["year"]">@row["description"]</option>
+                <option value="@row["toyId"]">@row["description"]</option>
             }
         </select>
     </label>
